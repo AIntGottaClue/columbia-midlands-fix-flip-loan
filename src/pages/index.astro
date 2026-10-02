@@ -1,0 +1,14 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CityContent from '../components/CityContent.astro';
+import {brand,domain,cities} from '../data/cities';
+const title='Fix and Flip Loans in the Columbia Midlands, SC | Columbia Midlands Fix & Flip Loan';
+const description='We connect Columbia, Lexington, Irmo and Blythewood area investors with fix and flip funding sources. Funding within 48 hours. Tell us your goal.';
+const businessId=`https://${domain}/#business`;
+const faq=[{q:'Are you a direct lender?',a:'No. We are connectors. We introduce investors to funding sources, and the funding source determines eligibility and terms.'},{q:'Does submitting guarantee funding?',a:'No. A submission starts a review, not an approval or commitment.'}];
+const areas=cities.map(c=>({'@type':'City',name:c.name,containedInPlace:{'@type':'State',name:'South Carolina'}}));
+const jsonld=[{'@context':'https://schema.org','@type':'WebSite',name:brand,url:`https://${domain}/`},{'@context':'https://schema.org','@type':'FinancialService','@id':businessId,name:brand,url:`https://${domain}/`,areaServed:areas,description:'Fix and flip funding connections for real estate investors across the Columbia Midlands of South Carolina, including Richland, Lexington, Kershaw, Fairfield and Calhoun counties. Not a direct lender.'},{'@context':'https://schema.org','@type':'Service',serviceType:'Fix and flip funding connection service',provider:{'@id':businessId},areaServed:areas},{'@context':'https://schema.org','@type':'FAQPage',mainEntity:faq.map(f=>({'@type':'Question',name:f.q,acceptedAnswer:{'@type':'Answer',text:f.a}}))}];
+---
+<Base title={title} description={description} path="/" jsonld={jsonld}><Header/><main><CityContent cityName="Columbia Midlands" location="Homepage" intro="From the bungalows of Columbia's close-in neighborhoods to the lake-country streets of Irmo and Chapin and the historic center of Camden, this region rewards investors who know the block. Tell us about the home, the work you plan and how you expect to sell. We are connectors, and we introduce your project to funding sources for funding within 48 hours." angle="A Rosewood bungalow, a Lexington ranch and a lake-area house near Chapin call for different repair scopes and different buyers. Start with the real condition of the property, the work you plan and recent sales on the same street or in the same neighborhood." caution="Humid crawl spaces and termites, older wiring, and flood zones along the Congaree, Saluda and Broad rivers and the creeks that feed them all show up in this region. Check them before you rely on a budget, and tell us what you have confirmed." showCityGrid={true}/></main><Footer/></Base>

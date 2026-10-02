@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://columbiafixandflip.loansapp.cfd/sitemap.xml
